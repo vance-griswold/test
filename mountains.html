@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mountains - SC Climbing</title>
+
+  <!-- External stylesheet -->
+  <link rel="stylesheet" href="combined-styles.css">
+
+  <!-- Small internal styles for page-specific tweaks (keeps your assignment's internal CSS requirement) -->
+  <style>
+    /* page-specific: adapt mountain-card spacing slightly for this page */
+    .mountain-list { margin-top:24px; display:flex; flex-direction:column; gap:28px; }
+    .mountain-card{ border-radius:12px; overflow:hidden; display:grid; grid-template-columns:420px 1fr; gap:0; align-items:stretch; background:#fff; box-shadow:0 10px 30px rgba(12,12,12,0.06); }
+    .mountain-cover{ position:relative; min-height:260px; overflow:hidden; background:#e9ecef; }
+    .mountain-cover img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .badge{ position:absolute; left:14px; top:14px; background:var(--accent); color:#fff; padding:6px 10px; border-radius:8px; font-weight:700; z-index:3; box-shadow:0 4px 12px rgba(0,0,0,0.18); }
+    .mountain-body{ padding:22px 26px; display:flex; flex-direction:column; gap:12px; }
+    .mountain-body h3{ margin:0; font-size:1.35rem; }
+    .meta-row{ display:flex; gap:16px; color:var(--muted); font-size:0.95rem; align-items:center; flex-wrap:wrap; }
+    .tags{ display:flex; gap:10px; flex-wrap:wrap; margin-top:6px; }
+    .tag{ padding:6px 10px; border-radius:999px; font-size:0.85rem; border:1px solid #eef3f2; background:#fff; color:#333 }
+    .view-link{ margin-top:12px; color:var(--accent); font-weight:600; text-decoration:none; display:inline-block; padding:8px 12px; border-radius:4px; border:1px solid rgba(217,115,0,0.12); }
+    @media (max-width:1000px){
+      .mountain-card{ grid-template-columns:1fr; }
+      .mountain-cover{ min-height:220px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Use the dark header (same as index) so the page matches index look -->
+  <header class="site-header dark">
+  <div class="header-inner container">
+    <div class="logo">SC Climbing</div>
+    <nav class="main-nav" aria-label="Main Navigation">
+      <a href="index.html">Home</a>
+      <a href="mountains.html" class="active">Mountains</a>
+      <a href="safety.html">Safety</a>
+      <a href="indoorclimbing.html">Indoor Climbing</a>
+      <a href="submit.html">Submit a Route</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    <!-- Use the same hero class as index so it looks identical -->
+    <section class="mountains-hero">
+  <div class="container">
+    <h1>Climbing Mountains</h1>
+    <p class="lead">
+      Explore South Carolina's diverse climbing areas. Each location offers unique routes and experiences for climbers of all skill levels.
+    </p>
+  </div>
+</section>
+
+    <section class="page-content">
+      <div class="container">
+
+        <!-- Mountain list -->
+        <div class="mountain-list">
+
+          <!-- Sassafras Mountain -->
+          <article class="mountain-card">
+            <div class="mountain-cover">
+              <span class="badge">5 Routes</span>
+              <img src="assets/sass.jpg" alt="Sassafras Mountain">
+            </div>
+            <div class="mountain-body">
+              <h3>Sassafras Mountain</h3>
+              <div class="meta-row">
+                <span>📍 Pickens County, SC</span>
+                <span>⛰️ 3,560 ft</span>
+                <span>📅 Best: Spring and Fall</span>
+              </div>
+              <p class="desc">Sassafras Mountain is the highest point in South Carolina and features scenic viewpoints and access to several climbable faces. It’s a great destination for climbers seeking panoramic views and mixed routes.</p>
+              <div class="tags">
+                <span class="tag">Granite</span>
+                <span class="tag">Trad</span>
+                <span class="tag">Scenic</span>
+              </div>
+              <div class="meta-row"><strong>Grade Range:</strong><span>5.4 - 5.11</span></div>
+              <a class="view-link" href="#">View All Routes →</a>
+            </div>
+          </article>
+
+          <!-- Table Rock -->
+          <article class="mountain-card">
+            <div class="mountain-cover">
+              <span class="badge">4 Routes</span>
+              <img src="assets/tablerock.jpg" alt="Table Rock State Park">
+            </div>
+            <div class="mountain-body">
+              <h3>Table Rock State Park</h3>
+              <div class="meta-row">
+                <span>📍 Pickens County, SC</span>
+                <span>⛰️ 3,124 ft</span>
+                <span>📅 Best: Spring and Fall</span>
+              </div>
+              <p class="desc">Table Rock is one of South Carolina's premier climbing destinations, with a variety of granite routes and stunning Blue Ridge views. The area offers everything from approachable trad climbs to more serious sport lines.</p>
+              <div class="tags">
+                <span class="tag">Granite</span>
+                <span class="tag">Sport</span>
+                <span class="tag">Trad</span>
+              </div>
+              <div class="meta-row"><strong>Grade Range:</strong><span>5.1 - 5.9</span></div>
+              <a class="view-link" href="#">View All Routes →</a>
+            </div>
+          </article>
+
+          <!-- Caesars Head -->
+          <article class="mountain-card">
+            <div class="mountain-cover">
+              <span class="badge">3 Routes</span>
+              <img src="assets/Caesars_Head.jpg" alt="Caesars Head State Park">
+            </div>
+            <div class="mountain-body">
+              <h3>Caesars Head State Park</h3>
+              <div class="meta-row">
+                <span>📍 Greenville County, SC</span>
+                <span>⛰️ 3,208 ft</span>
+                <span>📅 Best: Fall through Spring</span>
+              </div>
+              <p class="desc">Caesars Head offers spectacular granite climbing with panoramic views. The park includes both sport and trad lines and is popular for longer multi-pitch adventures.</p>
+              <div class="tags">
+                <span class="tag">Granite</span>
+                <span class="tag">Trad</span>
+              </div>
+              <div class="meta-row"><strong>Grade Range:</strong><span>5.5 - 5.12</span></div>
+              <a class="view-link" href="#">View All Routes →</a>
+            </div>
+          </article>
+
+          <article class="mountain-card">
+  <div class="mountain-cover">
+    <span class="badge">2 Routes</span>
+    <img src="assets/paris.jpg" alt="Paris Mountain">
+  </div>
+  <div class="mountain-body">
+    <h3>Paris Mountain</h3>
+    <div class="meta-row">
+      <span>📍 Greenville County, SC</span>
+      <span>⛰️ 1,900 ft</span>
+      <span>📅 Best: Spring - Fall</span>
+    </div>
+    <p class="desc">
+      A local favorite featuring accessible sport routes and short approach climbs.
+    </p>
+    <div class="tags">
+      <span class="tag">Sport</span>
+      <span class="tag">Beginner</span>
+    </div>
+  </div>
+</article>
+
+        </div>
+
+        <!-- Contact / footer area for the page -->
+        <section id="contact" class="contact" style="margin-top:32px;">
+          <h4>Contact</h4>
+          <p>Coming soon...</p>
+        </section>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 SC Climbing</p>
+    </div>
+  </footer>
+</body>
+</html>
