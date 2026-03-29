@@ -6,10 +6,42 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>SC Climbing — Safety</title>
 
+  <link rel="preload" href="combined-styles.css" as="style">
   <link rel="stylesheet" href="combined-styles.css">
 
   <style>
-    .section-title { margin-left: 10px; }
+    /* Critical above-the-fold styles only */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      padding-top: 68px;
+      background: #fafdfc;
+      color: #0f172a;
+    }
+
+    .container {
+      width: 100%;
+      padding-left: 8%;
+      padding-right: 8%;
+      margin: 0 auto;
+      max-width: 1800px;
+    }
+
+    .mountains-hero {
+      background: #2f2f2f;
+      color: #fff;
+      margin-top: -68px;
+      padding-top: 104px;
+      padding-bottom: 36px;
+    }
+
+    .main {
+      padding: 30px 20px;
+    }
+
+    .section-title {
+      margin-left: 10px;
+    }
   </style>
 </head>
 <body>
@@ -41,7 +73,16 @@
     <h2 class="section-title">Essential Climbing Gear</h2>
 
     <div class="gear-row">
-      <img src="assets/carabiner.png" alt="Carabiners attached to a harness" class="gear-img">
+      <img
+        src="assets/carabiner.png"
+        alt="Carabiners attached to a harness"
+        class="gear-img"
+        width="600"
+        height="400"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+      >
       <div>
         <h3>Carabiners</h3>
         <p>
@@ -52,7 +93,15 @@
     </div>
 
     <div class="gear-row">
-      <img src="assets/rope.png" alt="Climber tying rope into harness" class="gear-img">
+      <img
+        src="assets/rope.png"
+        alt="Climber tying rope into harness"
+        class="gear-img"
+        width="600"
+        height="400"
+        loading="lazy"
+        decoding="async"
+      >
       <div>
         <h3>Rope and Harnesses</h3>
         <p>
@@ -82,8 +131,6 @@
   </footer>
 </body>
 </html>
-
-
 
 
 
