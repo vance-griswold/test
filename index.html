@@ -92,6 +92,16 @@
       </div>
     </section>
 
+    <!-- Random Quotes Section -->
+    <section class="container" style="padding: 48px 0;">
+      <h3 style="text-align:center; margin-bottom:24px;">From the SC Climbing Community</h3>
+      <div id="quote-box" style="max-width:680px; margin:0 auto; background:#fff; border-radius:14px; box-shadow:0 10px 30px rgba(12,12,12,0.08); padding:36px 40px; text-align:center;">
+        <p id="quote-text" style="font-size:1.15rem; font-style:italic; color:#333; margin:0 0 18px 0;"></p>
+        <p id="quote-author" style="font-weight:700; color:#d97300; margin:0 0 24px 0;"></p>
+        <button onclick="showRandomQuote()" class="btn btn-primary">New Quote</button>
+      </div>
+    </section>
+
     <section class="get-started">
       <div class="container get-inner">
         <h3>Get Started Today</h3>
@@ -111,5 +121,26 @@
       <p>&copy; 2026 SC Climbing</p>
     </div>
   </footer>
+
+  <script>
+    var quotes = [
+      { text: "Table Rock changed my life. I drove up from Columbia not knowing what to expect and left completely hooked. There's nothing like it in the Southeast.", author: "— Marcus Teller, Greenville" },
+      { text: "I've been climbing Sassafras every fall for six years. The granite up there just holds differently than anything else I've touched.", author: "— Dana Pruitt, Spartanburg" },
+      { text: "Caesars Head is no joke. My first lead climb there humbled me real fast, but now it's my favorite place in the state.", author: "— Brett Holloway, Anderson" },
+      { text: "People sleep on Paris Mountain because it's so close to Greenville. I go after work and it never gets old.", author: "— Simone Adler, Greenville" },
+      { text: "South Carolina doesn't get enough credit in the climbing world. Bring a friend who's never been and watch their face when they see Table Rock for the first time.", author: "— Owen Flint, Columbia" },
+      { text: "I took my daughter to Paris Mountain for her first climb last spring. She's already asking to go back every weekend.", author: "— Lydia Gaines, Greer" },
+      { text: "The approach to Sassafras is half the experience. By the time you reach the face you're already in the right headspace.", author: "— Caleb Rutherford, Pickens" },
+      { text: "Caesars Head in October with the leaves turning is something I think about all year long. Pure magic.", author: "— Nina Frost, Seneca" }
+    ];
+
+    function showRandomQuote() {
+      var index = Math.floor(Math.random() * quotes.length);
+      document.getElementById("quote-text").textContent = "\u201c" + quotes[index].text + "\u201d";
+      document.getElementById("quote-author").textContent = quotes[index].author;
+    }
+
+    showRandomQuote();
+  </script>
 </body>
 </html>
