@@ -34,7 +34,8 @@
 
   <main class="main">
     <div class="form-card" role="form" aria-labelledby="form-title">
-      <form action="#">
+      
+      <form id="routeForm" action="#">
         <h3 id="form-title" style="margin-top:0; margin-bottom:8px; color:#fff;">
           Share a Route
         </h3>
@@ -63,7 +64,32 @@
     Your resource for outdoor climbing in South Carolina
   </footer>
 
+  <script>
+    document.getElementById("routeForm").addEventListener("submit", function(event) {
+      
+      var first = document.getElementById("first").value.trim();
+      var last = document.getElementById("last").value.trim();
+      var email = document.getElementById("email").value.trim();
+      var info = document.getElementById("info").value.trim();
+
+      var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+      if (first === "" || last === "" || email === "" || info === "") {
+        alert("Please fill out all fields.");
+        event.preventDefault();
+        return;
+      }
+
+      if (!email.match(emailPattern)) {
+        alert("Please enter a valid email address.");
+        event.preventDefault();
+        return;
+      }
+
+      alert("Form submitted successfully!");
+    });
+  </script>
+
 </body>
 </html>
-
 
