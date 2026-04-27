@@ -22,6 +22,7 @@
     .tags{ display:flex; gap:10px; flex-wrap:wrap; margin-top:6px; }
     .tag{ padding:6px 10px; border-radius:999px; font-size:0.85rem; border:1px solid #eef3f2; background:#fff; color:#333 }
     .view-link{ margin-top:12px; color:var(--accent); font-weight:600; text-decoration:none; display:inline-block; padding:8px 12px; border-radius:4px; border:1px solid rgba(217,115,0,0.12); }
+    .view-link:hover { background:rgba(217,115,0,0.06); }
     @media (max-width:1000px){
       .mountain-card{ grid-template-columns:1fr; }
       .mountain-cover{ min-height:220px; }
@@ -73,14 +74,14 @@
                 <span>⛰️ 3,560 ft</span>
                 <span>📅 Best: Spring and Fall</span>
               </div>
-              <p class="desc">Sassafras Mountain is the highest point in South Carolina and features scenic viewpoints and access to several climbable faces. It’s a great destination for climbers seeking panoramic views and mixed routes.</p>
+              <p class="desc">Sassafras Mountain is the highest point in South Carolina and features scenic viewpoints and access to several climbable faces. It's a great destination for climbers seeking panoramic views and mixed routes.</p>
               <div class="tags">
                 <span class="tag">Granite</span>
                 <span class="tag">Trad</span>
                 <span class="tag">Scenic</span>
               </div>
-              <div class="meta-row"><strong>Grade Range:</strong><span>5.4 - 5.11</span></div>
-              <a class="view-link" href="#">View All Routes →</a>
+              <div class="meta-row"><strong>Grade Range:</strong><span>5.4 – 5.11</span></div>
+              <button class="view-link" onclick="openRoutes('sassafras')">View All Routes →</button>
             </div>
           </article>
 
@@ -103,8 +104,8 @@
                 <span class="tag">Sport</span>
                 <span class="tag">Trad</span>
               </div>
-              <div class="meta-row"><strong>Grade Range:</strong><span>5.1 - 5.9</span></div>
-              <a class="view-link" href="#">View All Routes →</a>
+              <div class="meta-row"><strong>Grade Range:</strong><span>5.1 – 5.9</span></div>
+              <button class="view-link" onclick="openRoutes('tablerock')">View All Routes →</button>
             </div>
           </article>
 
@@ -126,32 +127,33 @@
                 <span class="tag">Granite</span>
                 <span class="tag">Trad</span>
               </div>
-              <div class="meta-row"><strong>Grade Range:</strong><span>5.5 - 5.12</span></div>
-              <a class="view-link" href="#">View All Routes →</a>
+              <div class="meta-row"><strong>Grade Range:</strong><span>5.5 – 5.12</span></div>
+              <button class="view-link" onclick="openRoutes('caesarshead')">View All Routes →</button>
             </div>
           </article>
 
+          <!-- Paris Mountain -->
           <article class="mountain-card">
-  <div class="mountain-cover">
-    <span class="badge">2 Routes</span>
-    <img src="assets/paris.jpg" alt="Paris Mountain">
-  </div>
-  <div class="mountain-body">
-    <h3>Paris Mountain</h3>
-    <div class="meta-row">
-      <span>📍 Greenville County, SC</span>
-      <span>⛰️ 1,900 ft</span>
-      <span>📅 Best: Spring - Fall</span>
-    </div>
-    <p class="desc">
-      A local favorite featuring accessible sport routes and short approach climbs.
-    </p>
-    <div class="tags">
-      <span class="tag">Sport</span>
-      <span class="tag">Beginner</span>
-    </div>
-  </div>
-</article>
+            <div class="mountain-cover">
+              <span class="badge">2 Routes</span>
+              <img src="assets/paris.jpg" alt="Paris Mountain">
+            </div>
+            <div class="mountain-body">
+              <h3>Paris Mountain</h3>
+              <div class="meta-row">
+                <span>📍 Greenville County, SC</span>
+                <span>⛰️ 1,900 ft</span>
+                <span>📅 Best: Spring – Fall</span>
+              </div>
+              <p class="desc">A local favorite featuring accessible sport routes and short approach climbs. Popular for after-work sessions and introducing new climbers to outdoor climbing.</p>
+              <div class="tags">
+                <span class="tag">Sport</span>
+                <span class="tag">Beginner</span>
+              </div>
+              <div class="meta-row"><strong>Grade Range:</strong><span>5.5 – 5.8</span></div>
+              <button class="view-link" onclick="openRoutes('parismountain')">View All Routes →</button>
+            </div>
+          </article>
 
         </div>
 
@@ -165,10 +167,195 @@
     </section>
   </main>
 
+  <!-- Route Modal -->
+  <div id="route-modal" class="route-modal-overlay" onclick="if(event.target===this)closeRouteModal()">
+    <div class="route-modal">
+      <button class="modal-close" onclick="closeRouteModal()">✕ Close</button>
+      <h2 id="modal-title" style="margin:0 0 4px;"></h2>
+      <p class="modal-subtitle" id="modal-subtitle"></p>
+      <div id="modal-route-list" class="route-list"></div>
+    </div>
+  </div>
+
   <footer class="site-footer">
     <div class="container">
       <p>&copy; 2026 SC Climbing</p>
     </div>
   </footer>
+
+  <script>
+    var routeData = {
+      sassafras: {
+        name: "Sassafras Mountain",
+        subtitle: "Pickens County, SC · 3,560 ft · Grade Range: 5.4 – 5.11",
+        routes: [
+          {
+            name: "Summit Slab",
+            grade: "5.4",
+            type: "Trad",
+            pitches: "2",
+            length: "200 ft",
+            desc: "The classic beginner route on Sassafras. Wide open slab with plenty of holds and great gear placements. Finishes with a sweeping view of the Blue Ridge Escarpment — worth every step of the approach."
+          },
+          {
+            name: "High Country Crack",
+            grade: "5.7",
+            type: "Trad",
+            pitches: "1",
+            length: "75 ft",
+            desc: "A clean hand crack splitting the north face. Solid gear placements throughout make this a popular training route for climbers building their trad rack skills."
+          },
+          {
+            name: "Ridgeline Traverse",
+            grade: "5.9",
+            type: "Trad",
+            pitches: "3",
+            length: "350 ft",
+            desc: "An adventurous multi-pitch following the natural ridge system. Each pitch offers different terrain — slab, crack, and a short offwidth crux on the third pitch. Bring a full rack."
+          },
+          {
+            name: "Granite Seam",
+            grade: "5.10b",
+            type: "Sport",
+            pitches: "1",
+            length: "60 ft",
+            desc: "Thin face climbing on compact granite with a technical sequence at the third bolt. A great project for climbers moving into the 5.10 range."
+          },
+          {
+            name: "Morning Light",
+            grade: "5.11a",
+            type: "Sport",
+            pitches: "1",
+            length: "50 ft",
+            desc: "The area's premier sport route. Sustained crimping on a slightly overhung face leads to a powerful crux near the top. Best attempted in the cool of early morning."
+          }
+        ]
+      },
+      tablerock: {
+        name: "Table Rock State Park",
+        subtitle: "Pickens County, SC · 3,124 ft · Grade Range: 5.1 – 5.9",
+        routes: [
+          {
+            name: "Governor's Slab",
+            grade: "5.4",
+            type: "Trad",
+            pitches: "1",
+            length: "250 ft",
+            desc: "One of the most climbed routes in South Carolina. A broad, friendly granite slab with abundant holds and easy gear placements. An excellent first trad route and a must-do for any SC climbing tick list."
+          },
+          {
+            name: "Sunday Morning",
+            grade: "5.7",
+            type: "Trad",
+            pitches: "3",
+            length: "450 ft",
+            desc: "Table Rock's most celebrated multi-pitch. Follows a natural crack and corner system through three varied pitches to a comfortable ledge with sweeping Blue Ridge views. Gear up and take your time."
+          },
+          {
+            name: "Slab Happy",
+            grade: "5.5",
+            type: "Trad",
+            pitches: "1",
+            length: "120 ft",
+            desc: "A gentle, low-angle slab ideal for first-time leaders or climbers building slab technique. Positive holds throughout with straightforward gear placements. Great for an afternoon warm-up."
+          },
+          {
+            name: "Blue Ridge Express",
+            grade: "5.9",
+            type: "Sport",
+            pitches: "2",
+            length: "180 ft",
+            desc: "The park's best sport route. Steep face climbing on the upper wall with bolted anchors and one of the finest summit views in the upstate. The second pitch crux is a punchy move off a small ledge."
+          }
+        ]
+      },
+      caesarshead: {
+        name: "Caesars Head State Park",
+        subtitle: "Greenville County, SC · 3,208 ft · Grade Range: 5.5 – 5.12",
+        routes: [
+          {
+            name: "Jumping Off Rock",
+            grade: "5.6",
+            type: "Trad",
+            pitches: "1",
+            length: "90 ft",
+            desc: "Named for the famous overlook above, this route climbs a clean crack system just below the park's iconic viewpoint. Solid gear placements and a spectacular position make it a crowd favorite. Don't miss the summit scramble after."
+          },
+          {
+            name: "Caesar's Pillar",
+            grade: "5.9",
+            type: "Trad",
+            pitches: "2",
+            length: "200 ft",
+            desc: "A striking line up the main granite pillar with excellent gear placements throughout both pitches. The first pitch follows a diagonal crack; the second steps right onto exposed face climbing with big holds. One of the park's finest outings."
+          },
+          {
+            name: "Headwall Direct",
+            grade: "5.12a",
+            type: "Sport",
+            pitches: "1",
+            length: "65 ft",
+            desc: "Caesars Head's test piece. A sustained line up the steepest section of the headwall with a powerful crux sequence at mid-height. Well-bolted and safe — this is pure hard climbing on immaculate granite."
+          }
+        ]
+      },
+      parismountain: {
+        name: "Paris Mountain",
+        subtitle: "Greenville County, SC · 1,900 ft · Grade Range: 5.5 – 5.8",
+        routes: [
+          {
+            name: "Lakeside Slab",
+            grade: "5.6",
+            type: "Sport",
+            pitches: "1",
+            length: "45 ft",
+            desc: "A friendly sport route above the lake with well-spaced bolts and great holds. The go-to route for introducing friends to outdoor climbing or for a quick session after work. Short approach, great views."
+          },
+          {
+            name: "Greenville Crack",
+            grade: "5.8",
+            type: "Trad",
+            pitches: "1",
+            length: "50 ft",
+            desc: "A short but satisfying hand crack tucked in a shaded corner. Perfect for building trad gear skills without committing to a long approach. The Greenville climbing community's favorite weeknight destination."
+          }
+        ]
+      }
+    };
+
+    function openRoutes(key) {
+      var data = routeData[key];
+      document.getElementById('modal-title').textContent = data.name + ' — All Routes';
+      document.getElementById('modal-subtitle').textContent = data.subtitle;
+
+      var html = '';
+      data.routes.forEach(function(r) {
+        var pitchLabel = r.pitches === '1' ? '1 Pitch' : r.pitches + ' Pitches';
+        html += '<div class="route-item">' +
+          '<h4>' + r.name + '</h4>' +
+          '<div class="route-badges">' +
+            '<span class="route-badge grade">' + r.grade + '</span>' +
+            '<span class="route-badge type">' + r.type + '</span>' +
+            '<span class="route-badge pitches">' + pitchLabel + '</span>' +
+            '<span class="route-badge length">' + r.length + '</span>' +
+          '</div>' +
+          '<p>' + r.desc + '</p>' +
+        '</div>';
+      });
+
+      document.getElementById('modal-route-list').innerHTML = html;
+      document.getElementById('route-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeRouteModal() {
+      document.getElementById('route-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeRouteModal();
+    });
+  </script>
 </body>
 </html>

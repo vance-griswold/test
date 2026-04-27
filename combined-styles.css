@@ -168,6 +168,32 @@ body{
   box-shadow:0 10px 30px rgba(12,12,12,0.05);
 }
 
+/* Why-climb card grid */
+.why-cards { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:24px; }
+.why-card { padding:24px 20px; }
+.why-card h4 { margin:0 0 10px; font-size:1.05rem; color:#0f172a; }
+.why-card p { margin:0; color:var(--muted); font-size:0.95rem; line-height:1.55; }
+
+/* Route Modal */
+.route-modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.65); z-index:2000; align-items:center; justify-content:center; padding:20px; }
+.route-modal-overlay.open { display:flex; }
+.route-modal { background:#fff; border-radius:16px; max-width:740px; width:100%; max-height:82vh; overflow-y:auto; padding:36px 40px; position:relative; box-shadow:0 24px 64px rgba(0,0,0,0.28); }
+.modal-close { position:absolute; top:16px; right:16px; background:none; border:1px solid #ddd; border-radius:6px; font-size:1rem; cursor:pointer; color:#666; padding:5px 12px; line-height:1.4; font-family:inherit; }
+.modal-close:hover { color:var(--accent); border-color:var(--accent); }
+.modal-subtitle { color:var(--muted); font-size:0.95rem; margin:4px 0 0 0; }
+.route-list { display:flex; flex-direction:column; gap:14px; margin-top:22px; }
+.route-item { border:1px solid #eef0f2; border-radius:10px; padding:16px 20px; background:#fff; transition:box-shadow 0.15s; }
+.route-item:hover { box-shadow:0 4px 16px rgba(12,12,12,0.08); }
+.route-item h4 { margin:0 0 10px; font-size:1rem; color:#0f172a; }
+.route-badges { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; }
+.route-badge { padding:3px 10px; border-radius:999px; font-size:0.8rem; font-weight:600; }
+.route-badge.grade { background:var(--accent); color:#fff; }
+.route-badge.type { background:#f3f4f6; color:#374151; }
+.route-badge.pitches { background:#e8f5e9; color:#2e7d32; }
+.route-badge.length { background:#eff6ff; color:#1d4ed8; }
+.route-item p { margin:0; font-size:0.9rem; color:#555; line-height:1.5; }
+button.view-link { background:none; font-family:inherit; cursor:pointer; }
+
 /* partner page main content layout */
 .hero, .main, .page .main { padding-left:var(--container-padding); padding-right:var(--container-padding); }
 
