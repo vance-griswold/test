@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="combined-styles.css">
 
   <style>
-    /* Critical above-the-fold styles only */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -42,8 +41,20 @@
     .section-title {
       margin-left: 10px;
     }
+
+    /* ✅ Added dropdown styling */
+    details summary {
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    details p {
+      margin-top: 10px;
+    }
   </style>
 </head>
+
 <body>
   <header class="site-header dark">
     <div class="header-inner container">
@@ -72,42 +83,33 @@
   <main class="main">
     <h2 class="section-title">Essential Climbing Gear</h2>
 
+    <!-- ✅ Carabiners with dropdown -->
     <div class="gear-row">
-      <img
-        src="assets/carabiner.webp"
-        alt="Carabiners attached to a harness"
-        class="gear-img"
-        width="600"
-        height="400"
-        fetchpriority="high"
-        loading="eager"
-        decoding="async"
-      >
+      <img src="assets/carabiner.webp" alt="Carabiners attached to a harness" class="gear-img">
+
       <div>
-        <h3>Carabiners</h3>
-        <p>
-          Carabiners are essential for climbing and are used for connecting to anchors,
-          connecting a climber to their rope, and attaching ropes to harnesses.
-        </p>
+        <details>
+          <summary>Carabiners</summary>
+          <p>
+            Carabiners are essential for climbing and are used for connecting to anchors,
+            connecting a climber to their rope, and attaching ropes to harnesses.
+          </p>
+        </details>
       </div>
     </div>
 
+    <!-- ✅ Rope with dropdown -->
     <div class="gear-row">
-      <img
-        src="assets/rope.webp"
-        alt="Climber tying rope into harness"
-        class="gear-img"
-        width="600"
-        height="400"
-        loading="lazy"
-        decoding="async"
-      >
+      <img src="assets/rope.webp" alt="Climber tying rope into harness" class="gear-img">
+
       <div>
-        <h3>Rope and Harnesses</h3>
-        <p>
-          Essential safety equipment used for managing falls, supporting a climber,
-          and for belaying and rappelling.
-        </p>
+        <details>
+          <summary>Rope and Harnesses</summary>
+          <p>
+            Essential safety equipment used for managing falls, supporting a climber,
+            and for belaying and rappelling.
+          </p>
+        </details>
       </div>
     </div>
 
@@ -131,6 +133,4 @@
   </footer>
 </body>
 </html>
-
-
 
