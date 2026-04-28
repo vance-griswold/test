@@ -1,19 +1,17 @@
-/* =========================================================
+/* ===============================
    combined-styles.css
-   Merged styles for all pages (index, mountains, safety,
-   indoorclimbing, submit)
-   ========================================================= */
+   Merged styles for all pages:
+   index, mountains, safety, indoorclimbing, submit
+   Save this file to your project root and update all HTML <link> tags to use it.
+   =============================== */
 
-
-/* =========================================================
-   Root variables
-   ========================================================= */
-:root {
-  --accent: #d9641a;    /* primary orange */
+/* ---------- Root Variables ---------- */
+:root{
+  --accent: #d9641a; /* Primary accent (orange) */
   --accent-dark: #d76311;
   --muted: #6b7280;
-  --header-dark: #2b2b2b; /* dark header used on index */
-  --hero-gray: #2f2f2f;   /* mountains grey hero */
+  --header-dark: #2b2b2b; /* Dark header (index) */
+  --hero-gray: #2f2f2f; /* Mountains page hero background */
   --page-bg: #fafdfc;
   --card-bg: #ffffff;
   --radius: 12px;
@@ -22,44 +20,29 @@
   --container-padding: 20px;
 }
 
+/* ---------- Reset & Base Styles ---------- */
+*{box-sizing:border-box}
+html,body{height:100%}
 
-/* =========================================================
-   Reset & base
-   ========================================================= */
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
+body{
+  margin:0;
   font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, Helvetica, sans-serif;
-  color: #0f172a;
-  background: var(--page-bg);
-  line-height: 1.45;
-  padding-top: var(--header-height); /* space for fixed header */
+  color:#0f172a;
+  background:var(--page-bg);
+  line-height:1.45;
+  padding-top: var(--header-height); /* Offset for fixed header */
 }
 
-
-/* =========================================================
-   Container
-   ========================================================= */
-.container {
-  width: 100%;
-  padding-left: 8%;
-  padding-right: 8%;
-  margin: 0 auto;
-  max-width: 1800px;
+/* General container utility */
+.container{
+  width:100%;
+  padding-left:8%;
+  padding-right:8%;
+  margin:0 auto;
+  max-width:1800px;
 }
 
-
-/* =========================================================
-   Page wrapper (partner layout)
-   ========================================================= */
+/* Page wrapper (used for partner pages layout) */
 .page {
   max-width: 1000px;
   margin: 0 auto;
@@ -69,104 +52,91 @@ body {
   flex-direction: column;
 }
 
-
-/* =========================================================
-   Header
-   ========================================================= */
-.header,
-.site-header {
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 1200;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+/* ---------- Header (Unified System) ---------- */
+/* Shared header base */
+.header, .site-header {
+  left:0;
+  top:0;
+  width:100%;
+  z-index:1200;
+  box-shadow:0 2px 6px rgba(0,0,0,0.08);
 }
 
-/* dark fixed header */
-.site-header.dark,
-.header.dark {
-  background: var(--header-dark);
-  color: #fff;
-  position: fixed;
-  padding: 10px 0;
-  z-index: 1200;
+/* Dark fixed header (index, mountains) */
+.site-header.dark, .header.dark {
+  background:var(--header-dark);
+  color:#fff;
+  position:fixed;
+  padding:10px 0;
 }
 
-/* light fixed header */
-.site-header.light,
-.header.light {
-  background: #fff;
-  color: var(--muted);
-  position: fixed;
-  padding: 10px 0;
-  z-index: 1200;
-  border-bottom: 0;
+/* Light fixed header variant */
+.site-header.light, .header.light {
+  background:#fff;
+  color:var(--muted);
+  position:fixed;
+  padding:10px 0;
+  border-bottom:0;
 }
 
-/* header inner layout */
-.header-inner,
-.header .brand,
-.header .nav {
-  display: flex;
-  align-items: center;
+/* Header layout + alignment */
+.header-inner, .header .brand, .header .nav {
+  display:flex;
+  align-items:center;
 }
 
 .header-inner {
-  justify-content: space-between;
-  gap: 12px;
-  width: 100%;
+  justify-content:space-between;
+  gap:12px;
+  width:100%;
 }
 
-/* logo */
-.logo,
-.brand h2 {
-  font-weight: 700;
-  color: inherit;
-  margin: 0;
+/* Logo styles */
+.logo, .brand h2 {
+  font-weight:700;
+  color:inherit;
+  margin:0;
 }
 
-.site-logo {
-  width: 42px;
-  height: auto;
+.site-logo{
+  width:42px;
+  height:auto;
 }
 
-
-/* =========================================================
-   Navigation
-   ========================================================= */
-.main-nav {
-  display: flex;
-  gap: 8px;
-  align-items: center;
+/* Main navigation (index-style) */
+.main-nav{
+  display:flex;
+  gap:8px;
+  align-items:center;
 }
 
-.main-nav a {
-  margin-left: 18px;
-  text-decoration: none;
-  color: rgba(255,255,255,0.88);
-  padding: 8px 10px;
-  border-radius: 6px;
+.main-nav a{
+  margin-left:18px;
+  text-decoration:none;
+  color:rgba(255,255,255,0.88);
+  padding:8px 10px;
+  border-radius:6px;
 }
 
-.site-header.light .main-nav a {
-  color: var(--muted);
+.site-header.light .main-nav a{
+  color:var(--muted)
 }
 
-.main-nav a.active {
-  background: var(--accent);
-  color: #fff;
-  font-weight: 600;
+.main-nav a.active{
+  background:var(--accent);
+  color:#fff;
+  font-weight:600;
 }
 
-/* partner nav */
-.nav {
-  margin-left: auto;
-  display: flex;
-  gap: 10px;
-  align-items: center;
+/* Partner navigation (legacy pages) */
+.nav{
+  margin-left:auto;
+  display:flex;
+  gap:10px;
+  align-items:center;
 }
 
-.nav a {
+.nav a{
   color: white;
   text-decoration: none;
   padding: 8px 12px;
@@ -176,206 +146,211 @@ body {
   display: inline-block;
 }
 
-.nav a.active {
-  background: var(--accent);
-  color: #fff;
+.nav a.active{
+  background:var(--accent);
+  color:#fff;
 }
 
-
-/* =========================================================
-   Hero (home)
-   ========================================================= */
-.hero {
-  width: 100%;
-  position: relative;
+/* ---------- Hero (Image Background) ---------- */
+.hero{
+  width:100%;
+  position:relative;
   margin-top: calc(-1 * var(--header-height));
   padding-top: calc(var(--header-height) + 28px);
-  min-height: 85vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height:85vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   background-image: url('assets/homebackround.jpg');
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  margin-bottom: 36px;
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+  margin-bottom:36px;
 }
 
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0,0,0,0.6),
-    rgba(0,0,0,0.6)
-  );
-  z-index: 1;
+/* Dark overlay for hero */
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+  z-index:1;
 }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  padding: 0 10%;
-  text-align: center;
-  max-width: none;
+/* Hero content container */
+.hero-content{
+  position:relative;
+  z-index:2;
+  width:100%;
+  padding:0 10%;
+  text-align:center;
 }
 
-.hero-content h1 {
-  font-size: 3.5rem;
-  margin: 0 0 16px;
-  line-height: 1.05;
-  font-weight: 700;
+.hero-content h1{
+  font-size:3.5rem;
+  margin:0 0 16px;
+  line-height:1.05;
+  font-weight:700;
 }
 
-.lead {
-  font-size: 1.2rem;
-  margin-bottom: 24px;
-  color: rgba(255,255,255,0.9);
+.lead{
+  font-size:1.2rem;
+  margin-bottom:24px;
+  color:rgba(255,255,255,0.9);
 }
 
-.hero-ctas {
-  display: flex;
-  justify-content: center;
+.hero-ctas{
+  display:flex;
+  justify-content:center;
 }
 
-
-/* =========================================================
-   Mountains hero
-   ========================================================= */
-.mountains-hero {
-  background: var(--hero-gray);
-  color: #fff;
-  position: relative;
+/* ---------- Mountains Hero (Solid Color) ---------- */
+.mountains-hero{
+  background:var(--hero-gray);
+  color:#fff;
+  position:relative;
   margin-top: calc(-1 * var(--header-height));
   padding-top: calc(var(--header-height) + 28px);
-  padding-bottom: 36px;
-  min-height: 260px;
-  margin-bottom: 28px;
+  padding-bottom:36px;
+  min-height:260px;
+  margin-bottom:28px;
 }
 
-.mountains-hero .container {
-  position: relative;
-  z-index: 2;
-  color: #fff;
+.mountains-hero .container{
+  position:relative;
+  z-index:2;
+  color:#fff;
 }
 
-
-/* =========================================================
-   Buttons
-   ========================================================= */
-.btn {
-  display: inline-block;
-  padding: 12px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  box-shadow: none;
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  cursor:pointer;
 }
 
-.btn-primary {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 8px 28px rgba(199,90,0,0.18);
+.btn-primary{
+  background:var(--accent);
+  color:#fff;
+  box-shadow:0 8px 28px rgba(199,90,0,0.18);
 }
 
-.btn-inverse {
-  background: rgba(255,255,255,0.12);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.08);
+.btn-inverse{
+  background:rgba(255,255,255,0.12);
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.08);
 }
 
-
-/* =========================================================
-   Cards
-   ========================================================= */
-.why {
-  padding: 36px 0;
-  background: transparent;
+/* ---------- Cards & Layout ---------- */
+.why{
+  padding:36px 0;
 }
 
-.why-card,
-.pop-card,
-.mountain-card,
-.form-card {
-  background: var(--card-bg);
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(12,12,12,0.05);
+/* Shared card style */
+.why-card, .pop-card, .mountain-card, .form-card {
+  background:var(--card-bg);
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(12,12,12,0.05);
 }
 
-
-/* =========================================================
-   Why grid
-   ========================================================= */
+/* Why-climb grid */
 .why-cards {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 24px;
-  margin-top: 24px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+  margin-top:24px;
 }
 
 .why-card {
-  padding: 24px 20px;
+  padding:24px 20px;
 }
 
 .why-card h4 {
-  margin: 0 0 10px;
-  font-size: 1.05rem;
-  color: #0f172a;
+  margin:0 0 10px;
 }
 
 .why-card p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.55;
+  margin:0;
+  color:var(--muted);
 }
 
-
-/* =========================================================
-   Route modal
-   ========================================================= */
+/* ---------- Modal (Routes) ---------- */
 .route-modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.65);
-  z-index: 2000;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.65);
+  z-index:2000;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
 }
 
 .route-modal-overlay.open {
-  display: flex;
+  display:flex;
 }
 
-.route-modal {
-  background: #fff;
-  border-radius: 16px;
-  max-width: 740px;
+/* ---------- Responsive Rules ---------- */
+@media (max-width:1200px){
+  .why-cards{ grid-template-columns:repeat(2,1fr); }
+  .popular-grid{ grid-template-columns:repeat(2,1fr); }
+  .hero-content h1{ font-size:2.4rem; }
+  body{ padding-top:62px; }
+}
+
+@media (max-width:1000px){
+  .mountain-card{ grid-template-columns:1fr; }
+}
+
+@media (max-width:820px){
+  .nav { display:none; } /* Hide legacy nav on mobile */
+}
+
+@media (max-width:700px){
+  .container{ padding-left:6%; padding-right:6%; }
+  .hero{ min-height:420px; }
+}
+
+/* ---------- Image Responsiveness ---------- */
+/* Ensure images scale within containers */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Optional full-bleed images */
+img.full-bleed {
   width: 100%;
-  max-height: 82vh;
-  overflow-y: auto;
-  padding: 36px 40px;
-  position: relative;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.28);
+  object-fit: cover;
 }
 
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: none;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-  color: #666;
-  padding: 5px 12px;
+/* Limit overly tall images */
+.content img,
+.mountain-body img {
+  max-height: 65vh;
+  object-fit: cover;
 }
 
-.modal-close:hover {
-  color: var(--accent);
-  border-color: var(--accent);
+/* ---------- Layout Overrides (Indoor/Safety Pages) ---------- */
+/* Restore original layouts for specific pages */
+
+:root {
+  --content-max: 1000px;
+  --gear-img-w: 260px;
+  --gear-img-h: 180px;
+}
+
+/* Main content alignment */
+.main {
+  max-width: var(--content-max);
+  margin-left: 8%;
+  padding: 30px var(--container-padding);
+}
+
+/* Center main content on submit page only */
+.mountains-hero + .main {
+  margin: 0 auto !important;
 }
