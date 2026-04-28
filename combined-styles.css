@@ -1,14 +1,15 @@
 /* combined-styles.css
    Merged styles for all pages (index, mountains, safety, indoorclimbing, submit)
+   Save this file to your project root and update every HTML <link> to use it.
 */
 
 /* ---------- Root variables ---------- */
 :root{
-  --accent: #d9641a;    
+  --accent: #d9641a;    /* primary orange */
   --accent-dark: #d76311;
   --muted: #6b7280;
-  --header-dark: #2b2b2b; 
-  --hero-gray: #2f2f2f;   
+  --header-dark: #2b2b2b; /* dark header used on index */
+  --hero-gray: #2f2f2f;   /* mountains grey hero */
   --page-bg: #fafdfc;
   --card-bg: #ffffff;
   --radius: 12px;
@@ -26,7 +27,7 @@ body{
   color:#0f172a;
   background:var(--page-bg);
   line-height:1.45;
-  padding-top: var(--header-height); 
+  padding-top: var(--header-height); /* space for fixed header */
 }
 
 /* Utility container used by both styles */
@@ -247,14 +248,17 @@ a:focus, button:focus, input:focus{ outline:3px solid rgba(217,115,0,0.25); outl
   .hero{ min-height:420px; }
   .hero-content{ padding:48px 8%; }
 }
-/* ---------- Responsive image fixes ---------- */
+/* ---------- Responsive image fixes (add at end of CSS) ---------- */
 
+/* 1) Default: make all inline <img> responsive and block-level so they never exceed their container */
 img {
   max-width: 100%;
   height: auto;
-  display: block;         
+  display: block;         /* removes inline gap and prevents odd baseline spacing */
 }
 
+/* 2) Constrain very large images that are direct children of body or top-level sections
+   (defensive rule: keeps hero/backgrounds untouched but limits content images) */
 body > img,
 main > img,
 .container > img,
@@ -264,6 +268,8 @@ main > img,
   display: block;
 }
 
+/* 3) If you have a few images that should be shown full-bleed and large, give them a class
+   (e.g. <img class="full-bleed" ...>) and style explicitly. mountainswise the rule above prevents runaway sizes. */
 img.full-bleed {
   width: 100%;
   height: auto;
@@ -271,6 +277,8 @@ img.full-bleed {
   display: block;
 }
 
+/* 4) Small utility: limit hero <img> usage (if any pages use an <img> inside the hero)
+   so hero images keep the cover look but don't blow up vertically */
 .hero img,
 .mountains-hero img {
   width: 100%;
@@ -279,8 +287,10 @@ img.full-bleed {
   display: block;
 }
 
+/* 5) Optional: add a max-height to guard against extremely tall photos (adjust px or use vh)
+   Remove or lower if you prefer taller images. */
 .content img, .mountain-body img, img.article-thumb {
-  max-height: 65vh; 
+  max-height: 65vh; /* images won't exceed 65% of the viewport height */
   width: auto;
   max-width: 100%;
   object-fit: cover;
@@ -289,6 +299,7 @@ img.full-bleed {
 
 /* --------------------
    Restore original indoor/safety layout & image sizing
+   Place at the end of combined-styles.css so it overrides other rules
    -------------------- */
 
 :root {
@@ -395,8 +406,8 @@ img.full-bleed {
 
 /* Left-align main content under the full-width hero */
 .main {
-  max-width: var(--content-max);   
-  margin: 0 0 0 calc(var(--hero-gutter)); 
+  max-width: var(--content-max);    /* keeps indoor/safety constrained */
+  margin: 0 0 0 calc(var(--hero-gutter)); /* start at hero's left gutter */
   padding: 30px var(--container-padding);
 }
 
@@ -407,7 +418,7 @@ img.full-bleed {
   }
 }
 
-/* Center main content only on Submit page */
+/* Center main content ONLY on Submit page */
 .mountains-hero + .main {
   margin: 0 auto !important;
 }
@@ -435,6 +446,4 @@ img.full-bleed {
     gap: 8px;
   }
 }
-
-
 
